@@ -39,6 +39,7 @@ public class SpacePhotoActivity extends AppCompatActivity {
                 .asBitmap()
                 .error(R.drawable.ic_delete_white_24dp)
                 //.error(R.drawable.ic_cloud_off_red)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .listener(new RequestListener<String, Bitmap>() {
 
                     @Override

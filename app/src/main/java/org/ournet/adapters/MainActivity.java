@@ -11,14 +11,17 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.ournet.R;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class Main2Activity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
+    private static final Logger log = LoggerFactory.getLogger(MainActivity.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try{
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main_screen);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -43,15 +46,15 @@ public class Main2Activity extends AppCompatActivity {
             showGalleryBtn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent galleryIntent = new Intent(Main2Activity.this, SpaceGalleryActivity.class);
+                    Intent galleryIntent = new Intent(MainActivity.this, SpaceGalleryActivity.class);
                     startActivity(galleryIntent);
                 }
             });
 
         } catch(Exception e){
+            log.error("intentando hacer logging",e.getMessage());
             Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
-
         }
     }
 
